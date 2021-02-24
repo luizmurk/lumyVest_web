@@ -1,0 +1,109 @@
+<style>
+    @media only screen and (max-width: 768px){
+    /* For mobile phones: */
+        .navbar-brand img {
+            height: 85px;
+            width: 380px;
+        }
+
+        .mid{
+            width: 345px;
+        }
+
+        .mid-card{
+            width: 345px;
+            margin-left: 15px;
+        }
+
+    }
+
+    @media only screen and (min-width: 768px) {
+    /* For Desktops: */
+        .navbar-brand img {
+            margin-left: 650px;
+        }
+
+        .mid{
+            width: 870px;
+            height: 307px;
+        }
+
+        .mid-card{
+            margin-left: 15px;
+            width: 870px;
+        }
+
+    }
+</style>
+
+<div class="dashboard-content">
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+            <div class="single-currency-box">
+                <h4>**** **** **** 5412</h4>
+                <p>Exp Date: 12/45</p>
+                <br>
+                <a href="login.html" class="bttn-small btn-emt">Pay with card 1</a>
+            </div>
+            
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+            <div class="single-currency-box">
+                <h4>**** **** **** 5780</h4>
+                <p>Exp Date: 12/45</p>
+                <br>
+                <a href="login.html" class="bttn-small btn-emt">Pay with card 2</a>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+            <div class="single-currency-box">
+                <h4>**** **** **** 5555</h4>
+                <p>Exp Date: 12/45</p>
+                <br>
+                <a href="login.html" class="bttn-small btn-emt">Pay with card 3</a>
+            </div>
+        </div>
+        <!-- <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12"> -->
+            <div class="dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="dashboard-inner-content">
+                            <div class="card mid-card">
+                                <h5 style="color:#fbf8be; font-family: 'Gill Sans'; letter-spacing: 2px;" class="card-header">ENTER YOUR CARD DETAILS</h5>
+                                <div class="card-body">
+                                    <form (ngSubmit)="save()">
+                                        <div class="row">
+                                            <p style="color:brown; margin-left:8px; font-family: 'Gill Sans';" *ngIf="!cardNumberRequired"><span style="color:grey;">(1.)</span> Enter Card Number</p>
+                                            <p style="color:brown; margin-left:8px; font-family: 'Gill Sans';" *ngIf="!expMonthRequired"><span style="color:grey;">(2.)</span> Enter the Expiry Month</p>
+                                            <p style="color:brown; margin-left:8px; font-family: 'Gill Sans';" *ngIf="!expYearRequired"><span style="color:grey;">(3.)</span> Enter the Expiry Year</p>
+                                            <p style="color:brown; margin-left:8px; font-family: 'Gill Sans';" *ngIf="!cvvRequired"><span style="color:grey;">(4.)</span> Enter Card CVV</p>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6">
+                                                <input [ngModelOptions]="{standalone: true}" (ngModelChange)="checkCardNumber($event)" [(ngModel)]="cardNumber" type="text" placeholder="Enter Card Number" ></div>
+                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                <!-- <label for="a-trans">CVV</label> -->
+                                                <input [ngModelOptions]="{standalone: true}" (ngModelChange)="checkCVV($event)" [(ngModel)]="cvv" type="text" placeholder="CVV"  id="a-trans"></div>
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                    <!-- <label for="chargedfffffg">Expiry Month</label> -->
+                                                    <input [ngModelOptions]="{standalone: true}" (ngModelChange)="checkExpMonth($event)" [(ngModel)]="exp_month" type="text" placeholder="MM"  id="chargedfffffg"></div>
+                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                <!-- <label for="chargedfffffg">Expiry Year</label> -->
+                                                <input [ngModelOptions]="{standalone: true}" (ngModelChange)="checkExpYear($event)" [(ngModel)]="exp_year" type="text" placeholder="YY"  id="chargedfffffg"></div>
+                                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                                                    <button (click)= "save()" type="submit">SAVE CARD</button>
+                                                </div>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+       
+    </div>
+</div>

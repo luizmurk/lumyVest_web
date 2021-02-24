@@ -1,0 +1,119 @@
+<style>
+    @media only screen and (max-width: 768px){
+    /* For mobile phones: */
+        .navbar-brand img {
+            height: 85px;
+            width: 380px;
+        }
+
+        .mid{
+            width: 345px;
+        }
+
+        h4{
+            font-family: 'Gill Sans';
+            letter-spacing: 1px;
+        }
+
+        h6{
+            font-family: 'Gill Sans';
+            letter-spacing: 1px;
+        }
+
+        p{
+            font-family: 'Tahoma';
+        }
+
+    }
+
+    @media only screen and (min-width: 768px) {
+    /* For Desktops: */
+        .navbar-brand img {
+            margin-left: 650px;
+        }
+
+        .mid{
+            width: 870px;
+            height: 307px;
+        }
+        .port{
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            line-height: 20px;
+            margin-top: -10px;
+        }
+
+        h4{
+            font-family: 'Arial';
+            letter-spacing: 1px;
+            font-weight: 900;
+        }
+
+        h6{
+            font-family: 'Gill Sans';
+            letter-spacing: 1px;
+        }
+
+        h2{
+            font-family: 'Arial';
+            letter-spacing: 1px;
+            font-size: 35px;
+        }
+
+        p{
+            font-family: 'Gill Sans';
+        }
+
+    }
+</style>
+
+
+    <div class="dashboard-content">
+        <div class="row">
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="single-currency-box">
+                    <h4>PORTFOLIO 1</h4>
+                    <p class="port">This investment portfolio is currently empty</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="single-currency-box">
+                    <h4>PORTFOLIO 2</h4>
+                    <p class="port">This investment portfolio is currently empty</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="single-currency-box">
+                    <h4>PORTFOLIO 3</h4>
+                    <p class="port">This investment portfolio is currently empty</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+                <div class="single-currency-box mid">
+                    <div>
+                        <h2>$ {{credentials.availableBalance}}.00</h2>
+                    </div>
+                    <div>
+                    <h6>Welcome, {{credentials.username}}</h6>
+                    <p style="font-family: 'Gill Sans';">{{credentials.email}}</p>
+                    </div>
+                    <br>
+                    <div *ngIf = 'credentials.investment_status == "inactive"'>
+                        <p>You Current have no investments running. </p>
+                    </div>
+                    
+                    <br>
+                    <div class="header-btn justify-content-end">
+                        <a href="login.html" class="bttn-small btn-emt">Get Started</a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+       
+    

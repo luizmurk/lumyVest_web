@@ -1,0 +1,623 @@
+<style>
+    @media only screen and (max-width: 768px){
+    /* For mobile phones: */
+        .navbar-brand img {
+            height: 85px;
+            width: 380px;
+        }
+
+        .mid{
+            width: 345px;
+        }
+
+    }
+
+    @media only screen and (min-width: 768px) {
+    /* For Desktops: */
+        .navbar-brand img {
+            margin-left: 0px;
+        }
+
+        .mid{
+            width: 870px;
+            height: 307px;
+        }
+
+    }
+
+div.loading {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  z-index: 5;
+}
+
+div.loading {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  z-index: 5;
+}
+
+
+div.success {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  z-index: 5;
+}
+
+div.failure {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  z-index: 5;
+}
+
+div.warning {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: orange;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  z-index: 5;
+}
+
+div.info {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: lightblue;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  z-index: 5;
+}
+</style>
+
+
+<body *ngIf = "view === 'third'">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h3>Angular 7 Reactive Form Validation</h3>
+                    <form [formGroup]="registerForm" (ngSubmit)="register()">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">Last Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <button class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<body *ngIf = "view === 'forgotPassword'">
+
+    <section style="background-color: #ffffff;"  class="hero-section">
+        <div class="hero-area wave-animation">
+            <div class="single-hero">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 centered">
+                            <div class="hero-sub">
+                                <div class="table-cell">
+                                    <div class="hero-left">
+                                        <h2 style="color: black;">Forgot Password</h2>
+                                        <p style="color: black;">Enter your email to get a link from which you can reset it.</p>
+                                        <div class="account-form">
+                                            <form action="#" class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <input type="email" placeholder="Email Address" required></div>
+                                               
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <button type="submit" class="bttn-mid btn-fill w-100">Send Link</button>
+                                                </div>
+                                            </form>
+                                            <div class="extra-links">
+                                                <a style="color: black;" (click)="signUpPage()">Register</a>
+                                                <a  style="color: black;" (click)="loginPage()">Login account</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="background-color: #ffffff;"  class="footer-area section-padding-2 blue-bg wave-animation"><div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 centered">
+                    <div class="footer-widget">
+                        <a href="walleto.html"><img src="./../assets/images/images-poligonal.png" alt=""></a>
+                        <p style="color: black;">lumyVest is an online investment platform where investors are given a secured avenue to grow their funds with detailed plans, secured portfolios and user friendly interfaces.</p>
+                        <div class="social">
+                            <a href="walleto.html" class="cl-facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="walleto.html" class="cl-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="walleto.html" class="cl-instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+   </body>
+
+    <body *ngIf = "view === 'register'">
+   
+    <section style="background-color: #ffffff;"  class="hero-section">
+        <div *ngIf = 'notify.showLoading' class="loading">{{notify.message}}</div>
+        <div *ngIf = 'notify.showSuccess' class="success">{{notify.message}}</div>
+        <div *ngIf = 'notify.showFailure' class="failure">{{notify.message}}</div>
+        <div *ngIf = 'notify.showWarning' class="warning">{{notify.message}}</div>
+        <div *ngIf = 'notify.showInfo' class="info">{{notify.message}}</div>
+
+        <div class="hero-area wave-animation">
+            <div class="single-hero">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 centered">
+                            <div class="hero-sub">
+                                <div class="table-cell">
+                                    <div class="hero-left">
+                                        <h2 style="color: black;">Register here</h2>
+                                        <p style="color: black;">Enter Your details to sign up as an investor</p>
+                                        <div class="account-form">
+                                            <form [formGroup]="registerForm" (ngSubmit)="register()" class="row">
+                                                <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <input formControlName="username" class="form-control" type="text" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+                                                    <div style="text-align: left;" *ngIf="submitted && f.username.errors" >
+                                                        <div style="color:brown; font-size: 10px;" *ngIf="f.username.errors.required">Username is required</div>
+                                                    </div>
+                                                </div>
+                                               
+                                                   
+                                                <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <input class="form-control" formControlName="email" type="text" placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                                                    <div *ngIf="submitted && f.email.errors" >
+                                                        <div style="color:brown; font-size: 10px" *ngIf="f.email.errors.required">email is required</div>
+                                                        <div style="color:brown; font-size: 10px" *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                                    </div>
+                                                </div>
+                                               
+                                                    
+                                                <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <input formControlName="password" type="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                                                    <div *ngIf="submitted && f.password.errors" >
+                                                        <div style="color:brown; font-size: 10px" *ngIf="f.password.errors.required">Password is required</div>
+                                                        <div style="color:brown; font-size: 10px" *ngIf="f.password.errors.minlength">Password must be at least 10 characters</div>
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <input formControlName="confirmPassword" type="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"/>
+                                                    <div *ngIf="submitted && f.confirmPassword.errors" >
+                                                        <div style="color:brown; font-size: 10px" *ngIf="f.confirmPassword.errors.required">ConfirmPassword is required</div>
+                                                        <div style="color:brown; font-size: 10px" *ngIf="f.confirmPassword.errors.mustMatch">Password must match</div>
+                                                    </div>
+                                                </div>
+                                                    
+                                                <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <button class="bttn-mid btn-fill w-100">Create account</button>
+                                                </div>
+                                            </form>
+                                            <div class="extra-links">
+                                                <a style="color: black;" (click)= "forgotPassword()">Forgot password</a>
+                                                <a  style="color: black;" (click)="loginPage()">Login account</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: #ffffff;"  class="footer-area section-padding-2 blue-bg wave-animation"><div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 centered">
+                    <div class="footer-widget">
+                        <a href="walleto.html"><img src="./../assets/images/images-poligonal.png" alt=""></a>
+                        <p style="color: black;">lumyVest is an online investment platform where investors are given a secured avenue to grow their funds with detailed plans, secured portfolios and user friendly interfaces.</p>
+                        <div class="social">
+                            <a href="walleto.html" class="cl-facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="walleto.html" class="cl-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="walleto.html" class="cl-instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+   </body>
+
+<body *ngIf = "view === 'login'"> 
+
+    <section style="background-color: #ffffff;"  class="hero-section">
+        <div *ngIf = 'notify.showLoading' class="loading">{{notify.message}}</div>
+        <div *ngIf = 'notify.showSuccess' class="success">{{notify.message}}</div>
+        <div *ngIf = 'notify.showFailure' class="failure">{{notify.message}}</div>
+        <div *ngIf = 'notify.showWarning' class="warning">{{notify.message}}</div>
+        <div *ngIf = 'notify.showInfo' class="info">{{notify.message}}</div>
+
+
+        <div class="hero-area wave-animation">
+            <div class="single-hero">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 centered">
+                            <div class="hero-sub">
+                                <div class="table-cell">
+                                    <div class="hero-left">
+                                        <h2 style="color: black;">Login here</h2>
+                                        <p style="color: black;">Welcome back enter your details to access your investment dashboard.</p>
+                                        <div class="account-form">
+                                            <form [formGroup]="loginForm" (ngSubmit)="login()" class="row">
+                                                <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <input class="form-control" formControlName="email" type="text" placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && l.email.errors }"/>
+                                                    <div *ngIf="submitted && l.email.errors" >
+                                                        <div style="color:brown; font-size: 10px" *ngIf="l.email.errors.required">email is required</div>
+                                                        <div style="color:brown; font-size: 10px" *ngIf="l.email.errors.email">Email must be a valid email address</div>
+                                                    </div>
+                                                </div>
+                                               
+                                                    
+                                                <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <input formControlName="password" type="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && l.password.errors }"/>
+                                                    <div *ngIf="submitted && l.password.errors" >
+                                                        <div style="color:brown; font-size: 10px" *ngIf="l.password.errors.required">Password is required</div>
+                                                        <div style="color:brown; font-size: 10px" *ngIf="l.password.errors.minlength">Password must be at least 10 characters</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <button type="submit" class="bttn-mid btn-fill w-100">Login now</button>
+                                                </div>
+                                            </form>
+                                            <div class="extra-links">
+                                                <a style="color: black;" (click)= "forgotPassword()">Forgot password</a>
+                                                <a style="color: black;" (click)="signUpPage()">Register now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <footer style="background-color: #ffffff;"  class="footer-area section-padding-2 blue-bg wave-animation"><div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 centered">
+                    <div class="footer-widget">
+                        <a href="walleto.html"><img src="./../assets/images/images-poligonal.png" alt=""></a>
+                        <p style="color: black;">lumyVest is an online investment platform where investors are given a secured avenue to grow their funds with detailed plans, secured portfolios and user friendly interfaces.</p>
+                        <div class="social">
+                            <a href="walleto.html" class="cl-facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="walleto.html" class="cl-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="walleto.html" class="cl-instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+   </body>
+
+<body *ngIf = "view === 'home'">
+
+
+    <!--nav-->
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <a class="navbar-brand" href="index.html"><img src="./../assets/images/1.png"  class="d-inline-block align-top" alt=""></a>
+          </a>
+          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+          </nav>
+          <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">LOG OUT
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+    <!--/nav-->
+        
+
+
+
+    <!--Dashboard area-->
+    <section style="background-color: #ffffff;"  class="section-padding-2">
+        <div *ngIf = 'notify.showLoading' class="loading">{{notify.message}}</div>
+        <div *ngIf = 'notify.showSuccess' class="success">{{notify.message}}</div>
+        <div *ngIf = 'notify.showFailure' class="failure">{{notify.message}}</div>
+        <div *ngIf = 'notify.showWarning' class="warning">{{notify.message}}</div>
+        <div *ngIf = 'notify.showInfo' class="info">{{notify.message}}</div>
+        <br>
+        <div  class="container">
+            <div class="row">
+                <!-- sidebar area -->
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+
+
+                    <aside style="background-color: #38b6ff; opacity: 0.9;" class="sidebar">
+                        <ul>
+                            <li  [class.active]="selected === 'Dashboard'"
+                            (click)="selectNav('Dashboard')"
+                            ><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/dashboard"><i class="ti-direction"></i>Dashboard</a></li>
+                           
+
+                            <li [class.active]="selected === 'Invest Funds'"
+                            (click)="selectNav('Invest Funds')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/invest"><i class="ti-exchange-vertical"></i>Invest Funds</a></li>
+                            <li [class.active]="selected === 'Fund Wallet'"
+                            (click)="selectNav('Fund Wallet')"> <a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/fund"><i class="ti-direction"></i>Fund Wallet</a></li>
+                            <li [class.active]="selected === 'Withdraw Funds'"
+                            (click)="selectNav('Withdraw Funds')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/withdraw"><i class="ti-wallet"></i>Withdraw Funds</a></li>
+                            <li [class.active]="selected === 'Transaction History'"
+                            (click)="selectNav('Transaction History')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/transactions"><i class="ti-check-box"></i>Transaction History</a></li>
+                            <li [class.active]="selected === 'Investment History'"
+                            (click)="selectNav('Investment History')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;"routerLink="/investments"><i class="ti-check-box"></i>Investment History</a></li>
+                            <li [class.active]="selected === 'Profile'"
+                            (click)="selectNav('Profile')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/profile"><i class="ti-clipboard"></i>Profile</a></li>
+                            <li [class.active]="selected === 'FAQ'"
+                            (click)="selectNav('FAQ')"><a  style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/faq"><i class="ti-help-alt"></i>FAQ</a></li>
+                        </ul>
+                    </aside>
+
+
+                </div>
+                <!-- sidebar area end -->
+
+
+                <!-- dashboard pane -->
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                    <div class="dashboard-content">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+                
+                <!-- dashboard pane -->
+
+
+            </div>
+        </div>
+    </section>
+    <!--/Dashboard area-->
+    
+
+
+
+    <!--Footer Area-->
+    <footer style="background-color: #ffffff;"  class="footer-area section-padding-2 blue-bg wave-animation">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 centered">
+                    <div class="footer-widget">
+                        <a href="walleto.html"><img src="./../assets/images/images-poligonal.png" alt=""></a>
+                        <p style="color: black;">lumyVest is an online investment platform where investors are given a secured avenue to grow their funds with detailed plans, secured portfolios and user friendly interfaces.</p>
+                        <div class="social">
+                            <a href="walleto.html" class="cl-facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="walleto.html" class="cl-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="walleto.html" class="cl-instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/Footer Area-->
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="./../js/js-jquery-3.2.1.min.js"></script>
+    <script src="./../js/js-jquery-migrate.js"></script>
+    <script src="./../js/js-popper.js"></script>
+    <script src="./../js/js-bootstrap.min.js"></script>
+    <script src="./../js/js-owl.carousel.min.js"></script>
+    <script src="./../js/js-parallax.min.js"></script>
+    <script src="./../js/js-magnific-popup.min.js"></script>
+    <script src="./../js/js-imagesloaded.pkgd.min.js"></script>
+    <script src="./../js/js-isotope.pkgd.min.js"></script>
+    <script src="./../js/js-waypoints.min.js"></script>
+    <script src="./../js/js-jquery.counterup.min.js"></script>
+    <script src="./../js/js-scrollUp.min.js"></script>
+    <script src="./../js/js-jquery.nice-select.min.js"></script>
+    <script src="./../js/js-script.js"></script> -->
+
+</body>
+
+
+
+
+<body *ngIf = "view === 'other-home'">
+
+
+    <!--nav-->
+    <section style="background-color: #ffffff;" class="header-area-2">
+        
+        <nav class="navbar navbar-expand-lg dashboard-menu">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="./../assets/images/1.png"  class="d-inline-block align-top" alt=""></a>
+            </div>
+        </nav>
+
+    </section>
+    <!--/nav-->
+        
+
+
+
+    <!--Dashboard area-->
+    <section style="background-color: #ffffff;"  class="section-padding-2">
+        <div *ngIf = 'notify.showLoading' class="loading">{{notify.message}}</div>
+        <div *ngIf = 'notify.showSuccess' class="success">{{notify.message}}</div>
+        <div *ngIf = 'notify.showFailure' class="failure">{{notify.message}}</div>
+        <div *ngIf = 'notify.showWarning' class="warning">{{notify.message}}</div>
+        <div *ngIf = 'notify.showInfo' class="info">{{notify.message}}</div>
+        <br>
+        <div  class="container">
+            <div class="row">
+                <!-- sidebar area -->
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
+
+
+                    <aside style="background-color: #38b6ff; opacity: 0.9;" class="sidebar">
+                        <ul>
+                            <li  [class.active]="selected === 'Dashboard'"
+                            (click)="selectNav('Dashboard')"
+                            ><a routerLink="/dashboard"><i class="ti-direction"></i>Dashboard</a></li>
+                           
+
+                            <li [class.active]="selected === 'Invest Funds'"
+                            (click)="selectNav('Invest Funds')"><a routerLink="/invest"><i class="ti-exchange-vertical"></i>Invest Funds</a></li>
+                            <li [class.active]="selected === 'Fund Wallet'"
+                            (click)="selectNav('Fund Wallet')"> <a routerLink="/fund"><i class="ti-direction"></i>Fund Wallet</a></li>
+                            <li [class.active]="selected === 'Withdraw Funds'"
+                            (click)="selectNav('Withdraw Funds')"><a routerLink="/withdraw"><i class="ti-wallet"></i>Withdraw Funds</a></li>
+                            <li [class.active]="selected === 'Transaction History'"
+                            (click)="selectNav('Transaction History')"><a routerLink="/transactions"><i class="ti-check-box"></i>Transaction History</a></li>
+                            <li [class.active]="selected === 'Investment History'"
+                            (click)="selectNav('Investment History')"><a routerLink="/investments"><i class="ti-check-box"></i>Investment History</a></li>
+                            <li [class.active]="selected === 'Profile'"
+                            (click)="selectNav('Profile')"><a routerLink="/profile"><i class="ti-clipboard"></i>Profile</a></li>
+                            <li [class.active]="selected === 'FAQ'"
+                            (click)="selectNav('FAQ')"><a routerLink="/faq"><i class="ti-help-alt"></i>FAQ</a></li>
+                        </ul>
+                    </aside>
+
+
+                </div>
+                <!-- sidebar area end -->
+
+
+                <!-- dashboard pane -->
+                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
+                    <div class="dashboard-content">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+                
+                <!-- dashboard pane -->
+
+
+            </div>
+        </div>
+    </section>
+    <!--/Dashboard area-->
+    
+
+
+
+    <!--Footer Area-->
+    <footer style="background-color: #ffffff;"  class="footer-area section-padding-2 blue-bg wave-animation">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 centered">
+                    <div class="footer-widget">
+                        <a href="walleto.html"><img src="./../assets/images/images-poligonal.png" alt=""></a>
+                        <p style="color: black;">lumyVest is an online investment platform where investors are given a secured avenue to grow their funds with detailed plans, secured portfolios and user friendly interfaces.</p>
+                        <div class="social">
+                            <a href="walleto.html" class="cl-facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="walleto.html" class="cl-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="walleto.html" class="cl-instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/Footer Area-->
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="./../js/js-jquery-3.2.1.min.js"></script>
+    <script src="./../js/js-jquery-migrate.js"></script>
+    <script src="./../js/js-popper.js"></script>
+    <script src="./../js/js-bootstrap.min.js"></script>
+    <script src="./../js/js-owl.carousel.min.js"></script>
+    <script src="./../js/js-parallax.min.js"></script>
+    <script src="./../js/js-magnific-popup.min.js"></script>
+    <script src="./../js/js-imagesloaded.pkgd.min.js"></script>
+    <script src="./../js/js-isotope.pkgd.min.js"></script>
+    <script src="./../js/js-waypoints.min.js"></script>
+    <script src="./../js/js-jquery.counterup.min.js"></script>
+    <script src="./../js/js-scrollUp.min.js"></script>
+    <script src="./../js/js-jquery.nice-select.min.js"></script>
+    <script src="./../js/js-script.js"></script> -->
+
+</body>
+
+
+
+
