@@ -383,7 +383,7 @@ div.info {
     <header class="text-gray-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <a class="navbar-brand" href="index.html"><img src="./../assets/images/1.png"  class="d-inline-block align-top" alt=""></a>
+            <a style="font-size: 30px;" class="navbar-brand" href="index.html">Nawali HR</a>
           </a>
           <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
           </nav>
@@ -421,19 +421,19 @@ div.info {
                            
 
                             <li [class.active]="selected === 'Invest Funds'"
-                            (click)="selectNav('Invest Funds')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/invest"><i class="ti-exchange-vertical"></i>Invest Funds</a></li>
+                            (click)="selectNav('Invest Funds')"><a routerLink="/invest"><i class="ti-exchange-vertical"></i>Employee Description</a></li>
                             <li [class.active]="selected === 'Fund Wallet'"
-                            (click)="selectNav('Fund Wallet')"> <a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/fund"><i class="ti-direction"></i>Fund Wallet</a></li>
+                            (click)="selectNav('Fund Wallet')"> <a routerLink="/fund"><i class="ti-direction"></i>Employee Funds</a></li>
                             <li [class.active]="selected === 'Withdraw Funds'"
-                            (click)="selectNav('Withdraw Funds')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/withdraw"><i class="ti-wallet"></i>Withdraw Funds</a></li>
+                            (click)="selectNav('Withdraw Funds')"><a routerLink="/withdraw"><i class="ti-wallet"></i>Employee Holiday</a></li>
                             <li [class.active]="selected === 'Transaction History'"
-                            (click)="selectNav('Transaction History')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/transactions"><i class="ti-check-box"></i>Transaction History</a></li>
+                            (click)="selectNav('Transaction History')"><a routerLink="/transactions"><i class="ti-check-box"></i>Employee History</a></li>
                             <li [class.active]="selected === 'Investment History'"
-                            (click)="selectNav('Investment History')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;"routerLink="/investments"><i class="ti-check-box"></i>Investment History</a></li>
+                            (click)="selectNav('Investment History')"><a routerLink="/investments"><i class="ti-check-box"></i>Investment History</a></li>
                             <li [class.active]="selected === 'Profile'"
-                            (click)="selectNav('Profile')"><a style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/profile"><i class="ti-clipboard"></i>Profile</a></li>
+                            (click)="selectNav('Profile')"><a routerLink="/profile"><i class="ti-clipboard"></i>Profile</a></li>
                             <li [class.active]="selected === 'FAQ'"
-                            (click)="selectNav('FAQ')"><a  style="color:#fbf8be; font-size: 18px; font-family: 'Gill Sans'; letter-spacing: 2px;" routerLink="/faq"><i class="ti-help-alt"></i>FAQ</a></li>
+                            (click)="selectNav('FAQ')"><a routerLink="/faq"><i class="ti-help-alt"></i>FAQ</a></li>
                         </ul>
                     </aside>
 
@@ -541,13 +541,13 @@ div.info {
                            
 
                             <li [class.active]="selected === 'Invest Funds'"
-                            (click)="selectNav('Invest Funds')"><a routerLink="/invest"><i class="ti-exchange-vertical"></i>Invest Funds</a></li>
+                            (click)="selectNav('Invest Funds')"><a routerLink="/invest"><i class="ti-exchange-vertical"></i>Employee Description</a></li>
                             <li [class.active]="selected === 'Fund Wallet'"
-                            (click)="selectNav('Fund Wallet')"> <a routerLink="/fund"><i class="ti-direction"></i>Fund Wallet</a></li>
+                            (click)="selectNav('Fund Wallet')"> <a routerLink="/fund"><i class="ti-direction"></i>Employee Funds</a></li>
                             <li [class.active]="selected === 'Withdraw Funds'"
-                            (click)="selectNav('Withdraw Funds')"><a routerLink="/withdraw"><i class="ti-wallet"></i>Withdraw Funds</a></li>
+                            (click)="selectNav('Withdraw Funds')"><a routerLink="/withdraw"><i class="ti-wallet"></i>Employee Holiday</a></li>
                             <li [class.active]="selected === 'Transaction History'"
-                            (click)="selectNav('Transaction History')"><a routerLink="/transactions"><i class="ti-check-box"></i>Transaction History</a></li>
+                            (click)="selectNav('Transaction History')"><a routerLink="/transactions"><i class="ti-check-box"></i>Employee History</a></li>
                             <li [class.active]="selected === 'Investment History'"
                             (click)="selectNav('Investment History')"><a routerLink="/investments"><i class="ti-check-box"></i>Investment History</a></li>
                             <li [class.active]="selected === 'Profile'"

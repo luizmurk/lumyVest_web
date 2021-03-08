@@ -8,6 +8,7 @@ import { LocalStorageService } from "./shared/local-storage.service";
 import { NotificationsService } from "./shared/notifications.service";
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { ReadService } from './shared/read.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent  {
   
   
 
-  constructor(private readService:ReadService, private authService:AuthService, public notify:NotificationsService, private storageService:LocalStorageService, private createService:CreateService, private formBuilder: FormBuilder, private _router: Router) { 
+  constructor(public auth: AngularFireAuth, private readService:ReadService, private authService:AuthService, public notify:NotificationsService, private storageService:LocalStorageService, private createService:CreateService, private formBuilder: FormBuilder, private _router: Router) { 
      this.userID = this.storageService.get('userID');
      this.authService.userID = this.storageService.get('userID');
      this.authService.credID = this.storageService.get('credID');
@@ -78,8 +79,8 @@ export class AppComponent  {
   }
 
   forgotPassword(){
-    // this.view = 'forgotPassword';
-    this.view = 'third';
+     this.view = 'forgotPassword';
+    //this.view = 'third';
   }
 
   login(): void{
@@ -114,6 +115,22 @@ export class AppComponent  {
       })
   }
 
+  private getAppRootUrl() : string {
+ 
+		// Since the demo may be running locally or on GitHub; and, using the Hash or
+		// Path location strategy; we need to calculate the the ingress using the the
+		// name of the demo folder that we know we're in.
+		var folder = "/firebase-email-auth-angular7/";
+ 
+		// Find the index of this folder in the browser URL.
+		var folderIndex = window.location.href.indexOf( folder );
+ 
+		// Return the URL prefix up-to and including the demo folder. This will be the
+		// base off of which we append all internal app-URLs.
+		return( window.location.href.slice( 0, ( folderIndex + folder.length ) ) );
+ 
+	}
+
   register(): void {
     this.submitted = true;
     if (this.registerForm.invalid) {
@@ -127,7 +144,33 @@ export class AppComponent  {
     this.authService
       .signUp(email,   password)
       .then((result) => {
-        this.userID = result.user?.uid;
+        var user = this.auth.currentUser;
+        var actionCodeSettings = {
+          // URL you want to redirect back to. The domain (www.example.com) for this
+          // URL must be in the authorized domains list in the Firebase Console.
+          url: 'lumyvest.com',
+          // This must be true.
+          handleCodeInApp: true,
+          // iOS: {
+          //   bundleId: 'com.example.ios'
+          // },
+          // android: {
+          //   packageName: 'com.example.android',
+          //   installApp: true,
+          //   minimumVersion: '12'
+          // },
+          dynamicLinkDomain: 'com.example.android'
+        };
+        console.log('about to got sent');
+    //     this.auth.sendSignInLinkToEmail('will4odia@gmail.com',{
+		// 			url: this.getAppRootUrl(),
+		// 			handleCodeInApp: true
+		// 		})
+        
+    // .then(() => {
+      console.log('just got sent');
+      result.user?.sendEmailVerification();
+      this.userID = result.user?.uid;
         var userData = {
           'city': null,
           'email': email,
@@ -142,6 +185,8 @@ export class AppComponent  {
         console.log('user Data Here');
         console.log(userData);
         this.setUserData(userData);
+   // });
+        
       }).catch((error) => {
         this.notify.Doneloading();
         window.alert(error.message)
