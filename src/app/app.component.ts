@@ -6,7 +6,7 @@ import { AuthService } from "./shared/auth.service";
 import { CreateService } from "./shared/create.service";
 import { LocalStorageService } from "./shared/local-storage.service";
 import { NotificationsService } from "./shared/notifications.service";
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ReadService } from './shared/read.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 
